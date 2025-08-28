@@ -8,43 +8,44 @@ import analyticsImg from "@/public/images/analytics.png";
 
 export default function ServicesSection() {
   const bgColors = ["#F3F3F3", "#B9FF66", "#191A23"];
+  const titleBgColors = ["#B9FF66", "#F3F3F3", "#F3F3F3"]; // title-এর জন্য
 
   const services = [
     {
       title: "Search Engine Optimization",
-      desc: "Boost your rankings and get discovered with advanced SEO strategies.",
       img: seoImg,
       bg: bgColors[0 % bgColors.length],
+      titleBg: titleBgColors[0 % titleBgColors.length],
     },
     {
-      title: "Pay Per Click Advertising",
-      desc: "Drive instant traffic with Google Ads, Meta Ads and more.",
+      title: "Pay-per-click-advertising",
       img: ppcImg,
       bg: bgColors[1 % bgColors.length],
-    },
-    {
-      title: "Content Marketing",
-      desc: "Engaging blogs, copywriting, and articles that convert.",
-      img: contentImg,
-      bg: bgColors[2 % bgColors.length],
+      titleBg: titleBgColors[1 % titleBgColors.length],
     },
     {
       title: "Social Media Marketing",
-      desc: "Build brand awareness across all social platforms.",
-      img: socialImg,
-      bg: bgColors[0 % bgColors.length],
+      img: contentImg,
+      bg: bgColors[2 % bgColors.length],
+      titleBg: titleBgColors[2 % titleBgColors.length],
     },
     {
       title: "Email Marketing",
-      desc: "Targeted email campaigns to engage and convert leads.",
+      img: socialImg,
+      bg: bgColors[0 % bgColors.length],
+      titleBg: titleBgColors[0 % titleBgColors.length],
+    },
+    {
+      title: "Content Marketing",
       img: emailImg,
       bg: bgColors[1 % bgColors.length],
+      titleBg: titleBgColors[1 % titleBgColors.length],
     },
     {
       title: "Analytics & Reporting",
-      desc: "Data-driven insights to measure and optimize campaigns.",
       img: analyticsImg,
       bg: bgColors[2 % bgColors.length],
+      titleBg: titleBgColors[0 % titleBgColors.length],
     },
   ];
 
@@ -63,7 +64,7 @@ export default function ServicesSection() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 justify-center">
         {services.map((service, index) => (
-          <ServiceCard key={index} {...service} bg={service.bg} />
+          <ServiceCard key={index} {...service} />
         ))}
       </div>
     </section>

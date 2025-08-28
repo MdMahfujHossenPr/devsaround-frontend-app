@@ -6,13 +6,15 @@ import WorkingProcess from "../app/components/WorkingProcess";
 import TeamSection from "../app/components/TeamSection";
 import TestimonialSection from "../app/components/TestimonialSection";
 import ContactSection from "../app/components/ContactSection";
+import MakeThingsHappen from "./components/MakeThingsHappen";
 
 export default function Home() {
   return (
-    <div>
+    <div className="space-y-16">
       <Banner />
       <BrandSection />
       <ServicesSection />
+      <MakeThingsHappen />
       <CaseStudySection />
       <WorkingProcess />
       <TeamSection />

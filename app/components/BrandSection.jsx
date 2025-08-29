@@ -9,7 +9,7 @@ import zoom from "@/public/images/zoom.png";
 export default function BrandSection() {
   return (
     <section className="bg-light py-10">
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-2 md:grid-cols-6 gap-8 items-center justify-items-center">
           <Image src={amazon} alt="Amazon" className="h-8 w-auto" />
           <Image src={dribbble} alt="Dribbble" className="h-8 w-auto" />

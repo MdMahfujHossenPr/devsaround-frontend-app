@@ -3,7 +3,7 @@ import heroImg from "@/public/images/Illustration.png"; // নিজের Hero 
 
 export default function Banner() {
   return (
-    <section className="max-w-7xl mx-auto grid md:grid-cols-2 gap-10 items-center px-6 py-16">
+    <section className="max-w-7xl mx-auto grid md:grid-cols-2 gap-10 items-center py-16">
       
       {/* Left Content */}
       <div className="space-y-6">

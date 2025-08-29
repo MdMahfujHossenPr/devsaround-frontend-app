@@ -10,7 +10,7 @@ import MakeThingsHappen from "./components/MakeThingsHappen";
 
 export default function Home() {
   return (
-    <div className="space-y-16">
+    <div className="space-y-16 px-6">
       <Banner />
       <BrandSection />
       <ServicesSection />

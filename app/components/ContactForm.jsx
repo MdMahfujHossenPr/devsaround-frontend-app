@@ -54,7 +54,7 @@ export default function ContactForm() {
         rows={4}
         required
       />
-      <button type="submit" className="bg-primary text-dark px-4 py-2 rounded-lg font-medium hover:opacity-80">
+      <button type="submit" className="bg-[#191A23] text-white px-4 py-2 rounded-lg font-medium hover:opacity-80">
         Send Message
       </button>
     </form>

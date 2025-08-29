@@ -50,7 +50,7 @@ export default function ServicesSection() {
   ];
 
   return (
-    <section className="py-16 px-6 max-w-7xl mx-auto">
+    <section className="py-16 max-w-7xl mx-auto">
       <h2 className="text-3xl md:text-4xl font-bold mb-10 text-center md:text-left flex flex-col md:flex-row items-center md:items-start">
         <span className="bg-[#B9FF66] px-2 py-1 mb-4 md:mb-0 md:mr-6">
           Our Services

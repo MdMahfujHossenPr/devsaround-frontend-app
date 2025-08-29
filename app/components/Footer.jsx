@@ -1,51 +1,85 @@
+"use client";
 import Link from "next/link";
+import { FaLinkedin, FaFacebook, FaTwitter } from "react-icons/fa";
 
 export default function Footer() {
   return (
-    <footer className="bg-dark text-light py-10 px-6">
-      <div className="max-w-7xl mx-auto grid md:grid-cols-4 gap-8">
-
-        {/* Logo */}
-        <div>
+    <footer className="bg-[#111] text-white py-12 px-6 max-w-7xl mx-auto space-y-16 rounded-tr-4xl rounded-tl-4xl mt-16">
+      <div>
+        {/* Step 1: Top Navbar style */}
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-6">
+          {/* Logo */}
           <div className="flex items-center space-x-2">
             <div className="w-8 h-8 bg-primary rounded-full"></div>
             <span className="text-xl font-bold">Positivus</span>
           </div>
-          <p className="mt-4 text-sm">©2023 Positivus. All Rights Reserved</p>
+
+          {/* Nav Links */}
+          <nav className="flex flex-wrap justify-center gap-4 md:gap-6 text-sm">
+            <Link href="/about" className="hover:text-primary">
+              About Us
+            </Link>
+            <Link href="/services" className="hover:text-primary">
+              Services
+            </Link>
+            <Link href="/" className="hover:text-primary">
+              Use Cases
+            </Link>
+            <Link href="/" className="hover:text-primary">
+              Pricing
+            </Link>
+            <Link href="/" className="hover:text-primary">
+              Blog
+            </Link>
+          </nav>
+
+          {/* Social Icons */}
+          <div className="flex space-x-4 text-xl">
+            <Link href="/">
+              <FaLinkedin className="hover:text-primary" />
+            </Link>
+            <Link href="/">
+              <FaFacebook className="hover:text-primary" />
+            </Link>
+            <Link href="/">
+              <FaTwitter className="hover:text-primary" />
+            </Link>
+          </div>
         </div>
 
-        {/* Links */}
-        <div>
-          <h3 className="font-semibold mb-3">Company</h3>
-          <ul className="space-y-2 text-sm">
-            <li><Link href="/about">About Us</Link></li>
-            <li><Link href="/services">Services</Link></li>
-            <li><Link href="/">Blog</Link></li>
-            <li><Link href="/">Privacy Policy</Link></li>
-          </ul>
-        </div>
+        {/* Step 2: Contact + Subscribe */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mt-12">
+          {/* Contact Info */}
+          <div>
+            <h3 className="text-lg font-semibold mb-4">Contact Us:</h3>
+            <p className="text-sm">Email: info@positivus.com</p>
+            <p className="text-sm mt-2">
+              Address: 1234 Main St
+              <br />
+              Moonstone City, Stardust State 12345
+            </p>
+          </div>
 
-        {/* Contact Info */}
-        <div>
-          <h3 className="font-semibold mb-3">Contact</h3>
-          <p className="text-sm">Email: info@gaijai</p>
-          <p className="text-sm">Phone: 93847273</p>
-          <p className="text-sm">Address: Dhaka, Bangladesh</p>
-        </div>
+          {/* Newsletter */}
+          <div className="bg-[#292A32] rounded-lg flex flex-col sm:flex-row w-full p-8 gap-4">
+            {/* Email Button Style */}
+            <button className="bg-[#292A32] text-white px-4 py-3 border border-[#FFFFFF] rounded-lg w-full sm:flex-1 text-left focus:outline-none">
+              Your Email
+            </button>
 
-        {/* Newsletter */}
-        <div>
-          <h3 className="font-semibold mb-3">Subscribe</h3>
-          <div className="flex">
-            <input 
-              type="email" 
-              placeholder="Your Email" 
-              className="px-3 py-2 rounded-l-md text-dark w-full"
-            />
-            <button className="bg-primary text-dark px-4 py-2 rounded-r-md">
-              Subscribe
+            {/* Subscribe Button */}
+            <button className="bg-[#B9FF66] text-[#292A32] px-4 py-3 rounded-lg w-full sm:flex-1 focus:outline-none">
+              Subscribe to news
             </button>
           </div>
+        </div>
+
+        {/* Step 3: Bottom line + copyright */}
+        <div className="border-t border-gray-700 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-gray-400 mt-12">
+          <p>© 2023 Positivus. All Rights Reserved.</p>
+          <Link href="/" className="hover:text-primary">
+            Privacy Policy
+          </Link>
         </div>
       </div>
     </footer>

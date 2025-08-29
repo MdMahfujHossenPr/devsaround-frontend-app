@@ -18,9 +18,17 @@ export default function TeamSection() {
 
   return (
     <section className="py-16 px-6 max-w-7xl mx-auto">
-      <h2 className="text-3xl md:text-4xl font-bold mb-10 text-center">
-        Meet Our <span className="text-primary">Team</span>
+      <h2 className="text-3xl md:text-4xl font-bold mb-10 text-center md:text-left flex flex-col md:flex-row items-center md:items-start">
+        <span className="bg-[#B9FF66] px-2 py-1 mb-4 md:mb-0 md:mr-6">
+           Team
+        </span>
+        <span className="text-sm text-gray-600 text-center md:text-left">
+          Meet the skilled and experienced team behind our{" "}
+          <br className="hidden md:block" />
+          successful digital marketing strategies.
+        </span>
       </h2>
+      
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
         {team.map((member, index) => (
           <TeamCard key={index} {...member} />

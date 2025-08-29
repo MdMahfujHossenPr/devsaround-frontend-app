@@ -19,10 +19,17 @@ export default function WorkingProcess() {
 
   return (
     <section className="py-16 px-6 max-w-7xl mx-auto">
-      <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
-        Our <span className="text-primary">Working Process</span>
+      <h2 className="text-3xl md:text-4xl font-bold mb-10 text-center md:text-left flex flex-col md:flex-row items-center md:items-start">
+        <span className="bg-[#B9FF66] px-2 py-1 mb-4 md:mb-0 md:mr-6">
+          Our  Working Process
+        </span>
+        <span className="text-sm text-gray-600 text-center md:text-left">
+         Step-by-Step Guide to Achieving{" "}
+          <br className="hidden md:block" />
+          Your Business Goals
+        </span>
       </h2>
-
+ 
       <div className="flex flex-col gap-y-5">
         {steps.map((step, index) => {
           const isOpen = openIndex === index;
@@ -31,7 +38,7 @@ export default function WorkingProcess() {
           return (
             <div
               key={index}
-              className="rounded-2xl border border-[#191A23] overflow-hidden transition-all duration-300"
+              className="rounded-4xl border border-b-6 border-[#191A23] overflow-hidden transition-all duration-300"
               style={{
                 backgroundColor: stepBg,
                 boxShadow: "0 4px 10px rgba(25, 26, 35, 0.5)",
@@ -39,7 +46,7 @@ export default function WorkingProcess() {
             >
               {/* Header */}
               <div
-                className={`flex items-center justify-between p-6 sm:p-8 md:p-10 lg:p-12 cursor-pointer border-b-2 ${
+                className={`flex items-center justify-between sm:m-8 md:m-10 lg:m-12 py-8 cursor-pointer border-b-2 ${
                   isOpen ? "border-[#191A23]" : "border-gray-300"
                 } transition-all duration-300`}
                 onClick={() => toggle(index)}

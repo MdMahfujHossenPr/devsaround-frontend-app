@@ -1,3 +1,5 @@
+"use client";
+import { motion } from "framer-motion";
 import TeamCard from "./TeamCard";
 import member1 from "@/public/images/member1.png";
 import member2 from "@/public/images/member2.png";
@@ -18,7 +20,14 @@ export default function TeamSection() {
 
   return (
     <section className="py-16 max-w-7xl mx-auto">
-      <h2 className="text-3xl md:text-4xl font-bold mb-10 text-center md:text-left flex flex-col md:flex-row items-center md:items-start">
+      {/* Heading */}
+      <motion.h2
+        className="text-3xl md:text-4xl font-bold mb-10 text-center md:text-left flex flex-col md:flex-row items-center md:items-start"
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+      >
         <span className="bg-[#B9FF66] px-2 py-1 mb-4 md:mb-0 md:mr-6">
            Team
         </span>
@@ -27,13 +36,30 @@ export default function TeamSection() {
           <br className="hidden md:block" />
           successful digital marketing strategies.
         </span>
-      </h2>
-      
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      </motion.h2>
+
+      {/* Team Cards */}
+      <motion.div
+        className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ staggerChildren: 0.2 }}
+      >
         {team.map((member, index) => (
-          <TeamCard key={index} {...member} />
+          <motion.div
+            key={index}
+            variants={{
+              hidden: { opacity: 0, y: 40 },
+              visible: { opacity: 1, y: 0 },
+            }}
+            whileHover={{ scale: 1.05, boxShadow: "0px 15px 35px rgba(0,0,0,0.15)" }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+          >
+            <TeamCard {...member} />
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
     </section>
   );
 }

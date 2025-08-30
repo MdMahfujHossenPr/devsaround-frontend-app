@@ -1,3 +1,5 @@
+"use client";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 
@@ -13,14 +15,28 @@ export default function ServiceCard({ title, desc, img, bg, titleBg }) {
       : "bg-black text-white hover:bg-green-600 hover:text-white";
 
   return (
-    <div
-      className={`rounded-xl p-5 md:p-6 flex flex-col md:flex-row items-center md:items-start justify-between shadow-md hover:shadow-lg transition w-full`}
+    <motion.div
+      className="rounded-xl p-5 md:p-6 flex flex-col md:flex-row items-center md:items-start justify-between shadow-md transition w-full cursor-pointer"
       style={{ backgroundColor: bg, minHeight: "150px" }}
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      whileHover={{
+        scale: 1.03,
+        boxShadow: "0px 15px 35px rgba(0,0,0,0.15)",
+      }}
+      whileTap={{ scale: 0.97 }}
     >
       {/* Left Content */}
-      <div className={`space-y-4 md:space-y-16 flex flex-col justify-around md:text-left`}>
+      <motion.div
+        className="space-y-4 md:space-y-16 flex flex-col justify-around md:text-left"
+        initial={{ opacity: 0, x: -30 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.6, delay: 0.2 }}
+      >
         <h3
-          className={`text-lg md:text-xl font-semibold px-2 py-1 rounded w-6/8`}
+          className="text-lg md:text-xl font-semibold px-2 py-1 rounded w-6/8"
           style={{ backgroundColor: titleBg }}
         >
           {title}
@@ -28,21 +44,25 @@ export default function ServiceCard({ title, desc, img, bg, titleBg }) {
         <p className={`text-sm md:text-base ${descColor}`}>{desc}</p>
 
         {/* Button with custom icon */}
-        <button
+        <motion.button
           className={`flex items-center gap-2 font-medium transition hover:underline ${buttonColor}`}
+          whileHover={{ x: 5 }}
+          transition={{ type: "spring", stiffness: 200 }}
         >
-          {/* আইকন কন্ডিশনাল bg + text color */}
           <span className={`p-1 rounded-full transition ${iconClasses}`}>
             <ArrowUpRight size={20} />
           </span>
-
-          {/* লেখা শুধু বড় স্ক্রিনে */}
           <span className="hidden md:inline">Learn more</span>
-        </button>
-      </div>
+        </motion.button>
+      </motion.div>
 
       {/* Right Image */}
-      <div className="mt-3 md:mt-0 md:ml-4 flex-shrink-0">
+      <motion.div
+        className="mt-3 md:mt-0 md:ml-4 flex-shrink-0"
+        initial={{ opacity: 0, scale: 0.9 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.6, delay: 0.3 }}
+      >
         <Image
           src={img}
           alt={title}
@@ -50,7 +70,7 @@ export default function ServiceCard({ title, desc, img, bg, titleBg }) {
           height={170}
           className="object-contain"
         />
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 }

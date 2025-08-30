@@ -1,3 +1,5 @@
+"use client";
+import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 
 export default function CaseStudySection() {
@@ -18,7 +20,14 @@ export default function CaseStudySection() {
 
   return (
     <section className="max-w-7xl mx-auto">
-      <h2 className="text-3xl md:text-4xl font-bold mb-10 text-center md:text-left flex flex-col md:flex-row items-center md:items-start">
+      {/* Heading */}
+      <motion.h2
+        className="text-3xl md:text-4xl font-bold mb-10 text-center md:text-left flex flex-col md:flex-row items-center md:items-start"
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+      >
         <span className="bg-[#B9FF66] px-2 py-1 mb-4 md:mb-0 md:mr-6">
           Case Studies
         </span>
@@ -27,17 +36,33 @@ export default function CaseStudySection() {
           <br className="hidden md:block" />
           Success through Our Case Studies:
         </span>
-      </h2>
- 
-      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 bg-[#191A23] text-white py-16 px-6 rounded-3xl">
+      </motion.h2>
+
+      {/* Case Cards */}
+      <motion.div
+        className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 bg-[#191A23] text-white py-16 px-6 rounded-3xl"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ staggerChildren: 0.2 }}
+      >
         {cases.map((c, index) => {
           const buttonColor = "text-[#B9FF66] hover:text-[#B9FF66]";
           const iconClasses = "bg-[#2A2B36] text-[#B9FF66]";
 
           return (
-            <div
+            <motion.div
               key={index}
-              className="border-r-2 border-[#2A2B36] flex flex-col justify-between hover:shadow-xl transition duration-300"
+              className="border-r-2 border-[#2A2B36] flex flex-col justify-between p-6 rounded-xl cursor-pointer"
+              variants={{
+                hidden: { opacity: 0, y: 40 },
+                visible: { opacity: 1, y: 0 },
+              }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              whileHover={{
+                scale: 1.03,
+                boxShadow: "0px 15px 30px rgba(0,0,0,0.2)",
+              }}
             >
               {/* Content */}
               <div className="space-y-3 flex-1">
@@ -48,21 +73,20 @@ export default function CaseStudySection() {
               </div>
 
               {/* Button */}
-              <button
+              <motion.button
                 className={`mt-6 flex items-center gap-2 font-medium transition ${buttonColor}`}
+                whileHover={{ x: 5 }}
+                transition={{ type: "spring", stiffness: 200 }}
               >
-              {/* Text hidden on small screens */}
                 <span className="hidden md:inline">Learn more</span>
-
-                {/* Icon */}
-                <span className="">
+                <span className={`${iconClasses}`}>
                   <ArrowUpRight size={20} />
                 </span>
-              </button>
-            </div>
+              </motion.button>
+            </motion.div>
           );
         })}
-      </div>
+      </motion.div>
     </section>
   );
 }

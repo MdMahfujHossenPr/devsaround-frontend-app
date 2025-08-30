@@ -1,6 +1,8 @@
 "use client";
 import Link from "next/link";
 import { FaLinkedin, FaFacebook, FaTwitter } from "react-icons/fa";
+import logos from "@/public/images/logos.png";
+import Image from "next/image";
 
 export default function Footer() {
   return (
@@ -8,9 +10,9 @@ export default function Footer() {
       <div>
         {/* Step 1: Top Navbar style */}
         <div className="flex flex-col lg:flex-row items-center justify-between gap-6">
-          {/* Logo */}
+          {/* Logo + Name */}
           <div className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-primary rounded-full"></div>
+            <Image src={logos} alt="Logo" className="w-8 h-8" />
             <span className="text-xl font-bold">Positivus</span>
           </div>
 

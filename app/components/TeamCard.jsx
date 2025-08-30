@@ -1,11 +1,24 @@
+"use client";
 import Image from "next/image";
 import { FaLinkedinIn } from "react-icons/fa";
+import { motion } from "framer-motion";
 
 export default function TeamCard({ img, name, role, desc }) {
   return (
-    <div className="bg-white shadow-md rounded-xl p-6 flex gap-4 hover:shadow-lg transition flex-col">
+    <motion.div
+      className="bg-white shadow-md rounded-xl p-6 flex gap-4 flex-col cursor-pointer"
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      whileHover={{ scale: 1.05, boxShadow: "0px 15px 35px rgba(0,0,0,0.15)" }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      viewport={{ once: true }}
+    >
       {/* Top Row: Image + Info (with underline) */}
-      <div className="flex items-center gap-4 w-full relative pb-2">
+      <motion.div
+        className="flex items-center gap-4 w-full relative pb-2"
+        whileHover={{ y: -5 }}
+        transition={{ type: "spring", stiffness: 200 }}
+      >
         {/* Left Image */}
         <div className="flex-shrink-0">
           <Image
@@ -31,12 +44,12 @@ export default function TeamCard({ img, name, role, desc }) {
           <h3 className="text-lg font-bold">{name}</h3>
         </div>
 
-        {/* Underline (goes under both image + name) */}
+        {/* Underline */}
         <div className="absolute bottom-0 left-0 w-full h-[2px] bg-[#191A23]"></div>
-      </div>
+      </motion.div>
 
       {/* Description */}
       <p className="text-gray-600 text-sm mt-3">{desc}</p>
-    </div>
+    </motion.div>
   );
 }
